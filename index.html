@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boilerplate Code</title>
+    <style>
+      html{
+        text-align: center;
+      }
+
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("https://cdn-images-1.medium.com/v2/resize:fill:1600:480/gravity:fp:0.5:0.4/0*l21xQxUJXoO1nLau.jpg") no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    color: white; 
+  }
+
+      #root{
+        width: 600px;
+        height: 300px;
+        margin-left: 50px;
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      p{
+        margin: 0;
+        margin-top: 40px;
+        font-size: 90px;
+        font-weight: bold;
+        color: blue;
+      }
+
+      button{
+        font-size: 28px;
+        border: none;
+        border-radius: 10px;
+        margin-top: 60px;
+        color: #fff;
+        background-color: orange;
+      }
+
+      button:hover{
+        transform: scale(1.1);
+        transition:  0.9s;
+      }
+
+      #btn-holder{
+        display: flex;
+        justify-content: space-evenly;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+    // Code goes here
+    function App() {
+    let [count, setCount] = React.useState(10);
+
+    console.log(count);
+
+    function handleClick() {
+    console.log("Button Clicked");
+    setCount(count + 1);
+    }
+
+    function handleDecrease() {
+    console.log("Decrease Clicked");
+    if (count > 0) {
+        setCount(count - 1);
+      }
+    }
+
+    let resetCounts = () => {
+      setCount(0);
+    }
+
+    return (
+      <>
+        <p>count: {count}</p>
+        <div id="btn-holder">
+          <button onClick={handleClick}>Increase count</button>
+          <button onClick={handleDecrease}>Decrease count</button>
+          <button onClick={resetCounts}>Reset Count</button>
+        </div>
+      </>
+    );
+  }
+
+  let reactRoot = ReactDOM.createRoot(document.getElementById("root"));
+  reactRoot.render(<App />);
+</script>
+
+  </body>
+</html>
+
+
